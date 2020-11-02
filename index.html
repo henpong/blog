@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="#" class="text-gray">NEWS</a>
+            </div>
+
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Category</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Archive</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Pages</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="social text-gray">
+                <a href="#"><i class="fas fa-facebook"></i></a>
+                <a href="#"><i class="fas fa-instagram"></i></a>
+                <a href="#"><i class="fas fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+</body>
+</html> -->
+
+
+<!DOCTYPE html >
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>PHP/MySQL Google Maps Example</title>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCtEvd2Nf6usJzae8Zod_oQ813MBU_Nx24&sensor=false"></script>
+    <script type="text/javascript">
+        var myMapAreaBig = new google.maps.LatLng(5.657300, -0.016082);
+        var marker;
+        var map;
+        function initialize() {
+            var mapProp = { zoom: 10, center: myMapAreaBig, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            var map = new google.maps.Map(document.getElementById("myMap"), mapProp);
+            var marker = [];
+            var exampleLocations = [
+                [15.657300, 6.016082]
+                // [20.964004, 107.004089],
+                // [20.807472, 106.99585]
+            ];
+            for (var i = 0; i < exampleLocations.length; i++) {
+                var beach = exampleLocations[i];
+                var myMapArea = new google.maps.LatLng(beach[0], beach[1]);
+                marker[i] = new google.maps.Marker({ map: map, draggable: true, animation: google.maps.Animation.DROP, position: myMapArea });
+                google.maps.event.addListener(marker[i], 'click', toggleBounce);
+            }
+
+
+            function toggleBounce(maker, i) {
+                if (marker.getAnimation() != null) {
+                    marker.setAnimation(null);
+                }
+                else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+<body>
+<div id="myMap" style="width: 960px; height: 500px"></div>
+</body>
+</html>
